@@ -3,3 +3,5 @@ build
 node_modules
 tsconfig.json
 .eslintrc.js
+tailwind.config.js
+postcss.config.js
