@@ -33,6 +33,7 @@ function App() {
   return (
     <div className="App">
       <input
+        style={{ color: images.length === 0 ? 'red' : 'black' }}
         type="text"
         placeholder="Search..."
         onChange={() => {
