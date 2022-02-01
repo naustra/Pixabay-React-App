@@ -15,20 +15,22 @@ const style = {
   boxShadow: 24,
 }
 
-const ImageModal = ({ data }) => {
+const ImageModal = ({
+  data: { webformatWidth, webformatURL, largeImageURL, tags, pageURL },
+}) => {
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
-  const defaultWidth = data.webformatWidth
+  const defaultWidth = webformatWidth
 
   return (
     <>
       <button className="shadow hover:shadow-lg p-0.5" onClick={handleOpen}>
         <img
           width={defaultWidth}
-          src={data.webformatURL}
-          alt={data.tags}
+          src={webformatURL}
+          alt={tags}
           loading="lazy"
         />
       </button>
@@ -39,13 +41,8 @@ const ImageModal = ({ data }) => {
         aria-describedby="modal-display-image-on-clicking"
       >
         <Box sx={style}>
-          <img
-            width="1280"
-            src={data.largeImageURL}
-            alt={data.tags}
-            loading="lazy"
-          />
-          <a href={data.pageURL}>Get information on that image</a>
+          <img width="1280" src={largeImageURL} alt={tags} loading="lazy" />
+          <a href={pageURL}>Get information on that image</a>
         </Box>
       </Modal>
     </>
