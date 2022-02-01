@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
+
+import PropTypes from 'prop-types'
 
 const style = {
   position: 'absolute',
@@ -14,7 +16,7 @@ const style = {
 }
 
 const ImageModal = ({ data }) => {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
@@ -48,6 +50,16 @@ const ImageModal = ({ data }) => {
       </Modal>
     </>
   )
+}
+
+ImageModal.propTypes = {
+  data: PropTypes.shape({
+    largeImageURL: PropTypes.string,
+    webformatURL: PropTypes.string,
+    pageURL: PropTypes.string,
+    tags: PropTypes.string,
+    webformatWidth: PropTypes.number,
+  }),
 }
 
 export default ImageModal
